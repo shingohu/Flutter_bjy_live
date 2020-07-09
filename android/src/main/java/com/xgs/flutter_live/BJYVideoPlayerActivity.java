@@ -84,6 +84,7 @@ public class BJYVideoPlayerActivity extends BaseActivity {
     }
 
     void bindingView() {
+
         bjyVideoView.setComponentEventListener(new IComponentEventListener() {
             @Override
             public void onReceiverEvent(int eventCode, Bundle bundle) {

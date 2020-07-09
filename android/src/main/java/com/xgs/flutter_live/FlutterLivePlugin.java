@@ -1,5 +1,8 @@
 package com.xgs.flutter_live;
 
+import com.baijiayun.BJYPlayerSDK;
+import com.baijiayun.livecore.LiveSDK;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -34,6 +37,16 @@ public class FlutterLivePlugin implements MethodCallHandler, BJYController.Video
             result.error("no_activity", "Flutter_Live plugin requires a foreground activity.", null);
             return;
         }
+
+        if (call.arguments instanceof Map) {
+            if (((Map) call.arguments).containsKey("bjzsym")) {
+                String bjyzsym = call.argument("bjzsym");
+                LiveSDK.customEnvironmentPrefix = bjyzsym;
+                BJYPlayerSDK.CUSTOM_DOMAIN = bjyzsym;
+            }
+        }
+
+
         this.result = result;
         if (call.method.equals("startLive")) {
             BJYController.startLiveActivity(registrar.activity(), new BJYLiveOption().create(call));
