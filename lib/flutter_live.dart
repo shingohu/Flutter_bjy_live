@@ -28,17 +28,19 @@ class FlutterLive {
     if (call.method == "video_progress") {}
   }
 
+  String bjzsym = "百家云专属域名";
+
   MethodChannel _channel;
 
   // 跳转直播
-  void startLiveActivity(String userName, String userNum, String userAvatar,
-      String sign, String roomId) {
+  void startLiveActivity(String userName, String userNum, String userAvatar, String sign, String roomId) {
     _channel.invokeMethod("startLive", {
       'userName': userName,
       'userNum': userNum,
       'userAvatar': userAvatar,
       'sign': sign,
       'roomId': roomId,
+      "bjzsym": bjzsym,
     });
   }
 
@@ -48,20 +50,20 @@ class FlutterLive {
       'roomId': roomId,
       'token': token,
       'sessionId': sessionId,
+      "bjzsym": bjzsym,
     });
   }
 
   // 跳转在线点播
-  Future<double> startVideoActivity(String userName, String userId,
-      String token, String videoId, String title) async {
+  Future<double> startVideoActivity(String userName, String userId, String token, String videoId, String title) async {
     final dynamic map = await _channel.invokeMethod("startVideo", {
       'videoId': videoId,
       'token': token,
       'userName': userName,
       'userId': userId,
       'title': title,
+      "bjzsym": bjzsym,
     });
-
     if (map is Map) {
       int progress = map["progress"] ?? 0;
       int totalProgress = map["totalProgress"] ?? 0;

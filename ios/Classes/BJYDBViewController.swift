@@ -54,6 +54,8 @@ class BJYDBViewController: UIViewController{
     
     
     
+    
+    
     func addBJPUView(){
 
          let options = BJPUVideoOptions.init()
@@ -73,10 +75,14 @@ class BJYDBViewController: UIViewController{
         uilabel?.text = bjtitle
     
         bjpvc?.cancelCallback = {
+            
+            self.progress?(Int(self.bjpvc?.playerManager.currentTime ?? 0),Int(self.bjpvc?.playerManager.duration ?? 1))
+              
             self.dismiss(animated: true, completion: nil)
         }
         
-    
+        
+      
         
         bjpvc!.play(withVid: videoId, token: token)
     }

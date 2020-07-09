@@ -24,6 +24,20 @@ public class SwiftFlutterLivePlugin: NSObject, FlutterPlugin ,BJVRequestTokenDel
 
   public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
     
+    if(call.arguments as? Dictionary<String,Any> != nil){
+        
+        let dic =  call.arguments as! Dictionary<String,Any>
+        if((dic["bjzsym"] as? String) != nil){
+            BJLRoom.setPrivateDomainPrefix(dic["bjzsym"] as? String)
+            BJVAppConfig.sharedInstance().privateDomainPrefix = dic["bjzsym"] as? String
+            print(dic["bjzsym"] as? String)
+        }
+    
+        
+    }
+    
+    
+    
     if(call.method == "startLive"){
         
         let dic =  call.arguments as! Dictionary<String,Any>
