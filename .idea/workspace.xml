@@ -4,9 +4,10 @@
     <list default="true" id="5d61e801-437f-451e-993e-cf86e600eb4c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/android/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/android/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/src/main/java/com/xgs/flutter_live/video/CustomBJYVideoView.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/java/com/xgs/flutter_live/video/CustomBJYVideoView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/src/main/java/com/xgs/flutter_live/widget/CustomControllerComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/java/com/xgs/flutter_live/widget/CustomControllerComponent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/example/android/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/android/app/src/main/java/com/xgs/flutter_live_example/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/example/android/app/src/main/java/com/xgs/flutter_live_example/MainActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/example/ios/.symlinks/plugins/flutter_live/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/flutter_live/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/main.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -141,7 +142,14 @@
       <option name="project" value="LOCAL" />
       <updated>1594275884719</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="升级百家云SDK">
+      <created>1594865578362</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1594865578362</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -161,33 +169,34 @@
     <MESSAGE value="百家云IOS" />
     <MESSAGE value="百家云IOS更新" />
     <MESSAGE value="百家云IOS更新回放进度" />
-    <option name="LAST_COMMIT_MESSAGE" value="百家云IOS更新回放进度" />
+    <MESSAGE value="升级百家云SDK" />
+    <option name="LAST_COMMIT_MESSAGE" value="升级百家云SDK" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="119" y="0" key="CommitChangelistDialog2" timestamp="1594275883834">
+    <state x="119" y="0" key="CommitChangelistDialog2" timestamp="1594865577721">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state x="119" y="0" key="CommitChangelistDialog2/0.0.1280.800@0.0.1280.800" timestamp="1594275883834" />
-    <state width="1218" height="3" key="GridCell.Tab.0.bottom" timestamp="1594275914771">
+    <state x="119" y="0" key="CommitChangelistDialog2/0.0.1280.800@0.0.1280.800" timestamp="1594865577721" />
+    <state width="1218" height="3" key="GridCell.Tab.0.bottom" timestamp="1594868192964">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="1218" height="3" key="GridCell.Tab.0.bottom/0.0.1280.800@0.0.1280.800" timestamp="1594275914771" />
-    <state width="1218" height="3" key="GridCell.Tab.0.center" timestamp="1594275914769">
+    <state width="1218" height="3" key="GridCell.Tab.0.bottom/0.0.1280.800@0.0.1280.800" timestamp="1594868192964" />
+    <state width="1218" height="3" key="GridCell.Tab.0.center" timestamp="1594868192961">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="1218" height="3" key="GridCell.Tab.0.center/0.0.1280.800@0.0.1280.800" timestamp="1594275914769" />
-    <state width="1218" height="3" key="GridCell.Tab.0.left" timestamp="1594275914767">
+    <state width="1218" height="3" key="GridCell.Tab.0.center/0.0.1280.800@0.0.1280.800" timestamp="1594868192961" />
+    <state width="1218" height="3" key="GridCell.Tab.0.left" timestamp="1594868192960">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="1218" height="3" key="GridCell.Tab.0.left/0.0.1280.800@0.0.1280.800" timestamp="1594275914767" />
-    <state width="1218" height="3" key="GridCell.Tab.0.right" timestamp="1594275914770">
+    <state width="1218" height="3" key="GridCell.Tab.0.left/0.0.1280.800@0.0.1280.800" timestamp="1594868192960" />
+    <state width="1218" height="3" key="GridCell.Tab.0.right" timestamp="1594868192963">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="1218" height="3" key="GridCell.Tab.0.right/0.0.1280.800@0.0.1280.800" timestamp="1594275914770" />
-    <state x="40" y="15" key="Vcs.Push.Dialog.v2" timestamp="1594275886618">
+    <state width="1218" height="3" key="GridCell.Tab.0.right/0.0.1280.800@0.0.1280.800" timestamp="1594868192963" />
+    <state x="40" y="15" key="Vcs.Push.Dialog.v2" timestamp="1594865587620">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state x="40" y="15" key="Vcs.Push.Dialog.v2/0.0.1280.800@0.0.1280.800" timestamp="1594275886618" />
+    <state x="40" y="15" key="Vcs.Push.Dialog.v2/0.0.1280.800@0.0.1280.800" timestamp="1594865587620" />
     <state x="134" y="113" key="git4idea.merge.GitPullDialog" timestamp="1594265262300">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
