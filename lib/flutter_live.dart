@@ -28,7 +28,7 @@ class FlutterLive {
     if (call.method == "video_progress") {}
   }
 
-  String bjzsym = "百家云专属域名";
+  String bjzsym = "";
 
   MethodChannel _channel;
 

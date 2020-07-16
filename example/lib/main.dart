@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'dart:async';
-
-import 'package:flutter/services.dart';
 import 'package:flutter_live/flutter_live.dart';
 
 void main() => runApp(MyApp());
@@ -50,12 +47,13 @@ class _MyAppState extends State<MyApp> {
         margin: EdgeInsets.all(16.0),
       ),
       onTap: () {
+        FlutterLive.instance.bjzsym = "htnewgstest";
         FlutterLive.instance.startLiveActivity(
-          "123456",
-          "12555500000",
+          "不知名的花",
+          "12000000000",
           "https://oss-cn-shenzhen.aliyuncs.com/shenlun/pic/2019/10/24/17/1571908699755_9e4bdfc0-089a-4f39-92bb-f6d2ee8ff868.jpg?OSSAccessKeyId=0qzfiBreffBeNSjN&Expires=4725673163&Signature=comRZqMZjoi%2F1SuzFHi18To%2BLao%3D",
-          "0fdc59c147d43f75a6e05d50fcf9f209",
-          "19102354370699",
+          "f3b9c62ca2b40e6c9a87165db1cbaaa2",
+          "20071642126824",
         );
 //            FlutterLive.instance.startTestActivity();
       },
