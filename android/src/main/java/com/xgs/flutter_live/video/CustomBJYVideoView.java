@@ -2,10 +2,8 @@ package com.xgs.flutter_live.video;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.os.Build;
 import android.os.Bundle;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -180,7 +178,7 @@ public class CustomBJYVideoView extends BaseVideoView {
 
     private void initComponentContainer() {
         componentContainer = new ComponentContainer(getContext());
-        componentContainer.init(this, new CustomComponentManager(getContext(), this.title));
+        componentContainer.init(this);
         componentContainer.setOnComponentEventListener(internalComponentEventListener);
         addView(componentContainer, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.MATCH_PARENT));

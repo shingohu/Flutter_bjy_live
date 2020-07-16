@@ -75,7 +75,7 @@ public class CustomControllerComponent extends BaseComponent implements OnTouchG
 
     @Override
     protected View onCreateComponentView(Context context) {
-        return View.inflate(context, com.baijiayun.videoplayer.ui.R.layout.layout_controller_component_new, null);
+        return View.inflate(context, com.baijiayun.videoplayer.ui.R.layout.bjy_pb_layout_controller_component_new, null);
     }
 
     @Override
@@ -138,9 +138,7 @@ public class CustomControllerComponent extends BaseComponent implements OnTouchG
             case UIEventKey.CUSTOM_CODE_TAP_PPT:
                 toggleController();
                 break;
-            case UIEventKey.CUSTOM_CODE_NETWORK_DISCONNETCT:
-                setControllerState(false);
-                break;
+
             default:
                 break;
         }
@@ -297,7 +295,7 @@ public class CustomControllerComponent extends BaseComponent implements OnTouchG
     }
 
     private void setSwitchScreenIcon(boolean isFullScreen) {
-        mSwitchScreen.setImageResource(isFullScreen ? com.baijiayun.videoplayer.ui.R.mipmap.icon_exit_full_screen : com.baijiayun.videoplayer.ui.R.mipmap.icon_full_screen);
+        mSwitchScreen.setImageResource(isFullScreen ? com.baijiayun.videoplayer.ui.R.drawable.icon_exit_full_screen : com.baijiayun.videoplayer.ui.R.drawable.icon_full_screen);
     }
 
     private void setScreenSwitchEnable(boolean screenSwitchEnable) {
