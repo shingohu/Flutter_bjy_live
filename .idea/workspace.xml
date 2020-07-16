@@ -1,25 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5d61e801-437f-451e-993e-cf86e600eb4c" name="Default Changelist" comment="百家云IOS更新">
+    <list default="true" id="5d61e801-437f-451e-993e-cf86e600eb4c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/src/main/java/com/xgs/flutter_live/BJYVideoPlayerActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/java/com/xgs/flutter_live/BJYVideoPlayerActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/src/main/java/com/xgs/flutter_live/FlutterLivePlugin.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/java/com/xgs/flutter_live/FlutterLivePlugin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/android/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/android/src/main/java/com/xgs/flutter_live/video/CustomBJYVideoView.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/java/com/xgs/flutter_live/video/CustomBJYVideoView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/android/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/example/android/gradle.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/src/main/java/com/xgs/flutter_live/widget/CustomControllerComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/java/com/xgs/flutter_live/widget/CustomControllerComponent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/example/ios/.symlinks/plugins/flutter_live/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/flutter_live/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/ios/.symlinks/plugins/flutter_live/example/ios/Podfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/flutter_live/example/ios/Podfile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/ios/.symlinks/plugins/flutter_live/example/ios/Runner.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/flutter_live/example/ios/Runner.xcodeproj/project.pbxproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/ios/.symlinks/plugins/flutter_live/example/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/flutter_live/example/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/ios/.symlinks/plugins/flutter_live/ios/Classes/BJYDBViewController.swift" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/flutter_live/ios/Classes/BJYDBViewController.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/ios/.symlinks/plugins/flutter_live/ios/Classes/SwiftFlutterLivePlugin.swift" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/flutter_live/ios/Classes/SwiftFlutterLivePlugin.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/ios/.symlinks/plugins/flutter_live/lib/flutter_live.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/flutter_live/lib/flutter_live.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/ios/Podfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/Podfile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/ios/Runner.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/Runner.xcodeproj/project.pbxproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/example/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Classes/BJYDBViewController.swift" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Classes/BJYDBViewController.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Classes/SwiftFlutterLivePlugin.swift" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Classes/SwiftFlutterLivePlugin.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/flutter_live.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/flutter_live.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -147,7 +134,14 @@
       <option name="project" value="LOCAL" />
       <updated>1572599448990</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="百家云IOS更新回放进度">
+      <created>1594275884719</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1594275884719</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -155,7 +149,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
@@ -164,33 +160,34 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="百家云IOS" />
     <MESSAGE value="百家云IOS更新" />
-    <option name="LAST_COMMIT_MESSAGE" value="百家云IOS更新" />
+    <MESSAGE value="百家云IOS更新回放进度" />
+    <option name="LAST_COMMIT_MESSAGE" value="百家云IOS更新回放进度" />
   </component>
   <component name="WindowStateProjectService">
     <state x="119" y="0" key="CommitChangelistDialog2" timestamp="1594275883834">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state x="119" y="0" key="CommitChangelistDialog2/0.0.1280.800@0.0.1280.800" timestamp="1594275883834" />
-    <state width="1218" height="469" key="GridCell.Tab.0.bottom" timestamp="1594275742351">
+    <state width="1218" height="3" key="GridCell.Tab.0.bottom" timestamp="1594275914771">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="1218" height="469" key="GridCell.Tab.0.bottom/0.0.1280.800@0.0.1280.800" timestamp="1594275742351" />
-    <state width="1218" height="469" key="GridCell.Tab.0.center" timestamp="1594275742347">
+    <state width="1218" height="3" key="GridCell.Tab.0.bottom/0.0.1280.800@0.0.1280.800" timestamp="1594275914771" />
+    <state width="1218" height="3" key="GridCell.Tab.0.center" timestamp="1594275914769">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="1218" height="469" key="GridCell.Tab.0.center/0.0.1280.800@0.0.1280.800" timestamp="1594275742347" />
-    <state width="1218" height="469" key="GridCell.Tab.0.left" timestamp="1594275742345">
+    <state width="1218" height="3" key="GridCell.Tab.0.center/0.0.1280.800@0.0.1280.800" timestamp="1594275914769" />
+    <state width="1218" height="3" key="GridCell.Tab.0.left" timestamp="1594275914767">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="1218" height="469" key="GridCell.Tab.0.left/0.0.1280.800@0.0.1280.800" timestamp="1594275742345" />
-    <state width="1218" height="469" key="GridCell.Tab.0.right" timestamp="1594275742349">
+    <state width="1218" height="3" key="GridCell.Tab.0.left/0.0.1280.800@0.0.1280.800" timestamp="1594275914767" />
+    <state width="1218" height="3" key="GridCell.Tab.0.right" timestamp="1594275914770">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="1218" height="469" key="GridCell.Tab.0.right/0.0.1280.800@0.0.1280.800" timestamp="1594275742349" />
-    <state x="40" y="15" key="Vcs.Push.Dialog.v2" timestamp="1594265217891">
+    <state width="1218" height="3" key="GridCell.Tab.0.right/0.0.1280.800@0.0.1280.800" timestamp="1594275914770" />
+    <state x="40" y="15" key="Vcs.Push.Dialog.v2" timestamp="1594275886618">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state x="40" y="15" key="Vcs.Push.Dialog.v2/0.0.1280.800@0.0.1280.800" timestamp="1594265217891" />
+    <state x="40" y="15" key="Vcs.Push.Dialog.v2/0.0.1280.800@0.0.1280.800" timestamp="1594275886618" />
     <state x="134" y="113" key="git4idea.merge.GitPullDialog" timestamp="1594265262300">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
