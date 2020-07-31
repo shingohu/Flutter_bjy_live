@@ -118,7 +118,29 @@
     [self bjl_kvo:BJLMakeProperty(self.playerManager, rate)
          observer:^BOOL(id  _Nullable now, id  _Nullable old, BJLPropertyChange * _Nullable change) {
              bjl_strongify(self);
-             [self.mediaControlView updateWithRate:[NSString stringWithFormat:@"%.1fx", self.playerManager.rate]];
+             NSString *rateString = [NSString stringWithFormat:@"%.1fx", self.playerManager.rate];
+             [self.mediaControlView updateWithRate:rateString];
+             [self.vRateButton setTitle:rateString ?: @"1.0x" forState:UIControlStateNormal];
+             return YES;
+    }];
+    
+    // 字幕信息
+    [self bjl_kvo:BJLMakeProperty(self.playerManager, playInfo)
+         observer:^BJLControlObserving(id  _Nullable value, id  _Nullable oldValue, BJLPropertyChange * _Nullable change) {
+             bjl_strongify(self);
+             if (self.playerManager.playInfo) {
+                 [self.mediaControlView updateSubtitleExist:self.playerManager.playInfo.subtitleInfo.count];
+                 [self updateVSubtitleButtonConstriants:self.playerManager.playInfo.subtitleInfo.count];
+                 return NO;
+             }
+             return YES;
+    }];
+    
+    // 字幕
+    [self bjl_kvo:BJLMakeProperty(self.playerManager, currentSubtitle)
+         observer:^BJLControlObserving(id  _Nullable value, id  _Nullable oldValue, BJLPropertyChange * _Nullable change) {
+             bjl_strongify(self);
+             self.subtitleLabel.text = self.playerManager.currentSubtitle.content;
              return YES;
     }];
     

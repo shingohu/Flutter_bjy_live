@@ -13,4 +13,6 @@
 
 - (void)seekToTime:(NSTimeInterval)time;
 
+- (void)showRateList;
+
 @end

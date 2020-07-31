@@ -9,6 +9,7 @@
 
 #import "BJPUViewController+ui.h"
 #import "BJPUViewController+protected.h"
+#import "BJPUViewController+media.h"
 #import "BJPUTheme.h"
 
 @implementation BJPUViewController (ui)
@@ -27,6 +28,13 @@
         make.edges.equalTo(playerView);
     }];
     
+    // subtitleLabel
+    [self.view addSubview:self.subtitleLabel];
+    [self.subtitleLabel bjl_makeConstraints:^(BJLConstraintMaker * _Nonnull make) {
+        make.centerX.equalTo(self.view);
+        make.bottom.left.right.equalTo(self.view.bjl_safeAreaLayoutGuide ?: self.view).inset(18.0);
+    }];
+    
     // mediaControlView
     [self.view addSubview:self.mediaControlView];
     [self.mediaControlView bjl_makeConstraints:^(BJLConstraintMaker *make) {
@@ -35,7 +43,7 @@
     }];
     
     // topBarView
-    CGFloat topBarHeight = 44.0;
+    CGFloat topBarHeight = 40.0;
     [self.view addSubview:self.topBarView];
     [self.topBarView bjl_makeConstraints:^(BJLConstraintMaker *make) {
         make.top.left.right.equalTo(self.view);
@@ -48,39 +56,15 @@
         button.imageView.contentMode = UIViewContentModeScaleAspectFill;
         [button setImage:[BJPUTheme backButtonImage] forState:UIControlStateNormal];
         button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-        button.imageEdgeInsets = UIEdgeInsetsMake(0.0, 20.0, 0.0, 0.0);
+        button.imageEdgeInsets = UIEdgeInsetsMake(0.0, 15.0, 0.0, 0.0);
         [button addTarget:self action:@selector(backAction) forControlEvents:UIControlEventTouchUpInside];
-        
         button;
     });
     [self.topBarView addSubview:cancelButton];
     [cancelButton bjl_makeConstraints:^(BJLConstraintMaker *make) {
-        make.left.equalTo(self.topBarView.bjl_safeAreaLayoutGuide ?: self.topBarView);
-        make.centerY.equalTo(self.topBarView);
+        make.top.left.equalTo(self.topBarView.bjl_safeAreaLayoutGuide ?: self.topBarView);
         make.size.equal.sizeOffset(CGSizeMake(topBarHeight * 1.5, topBarHeight));
     }];
-    
-    
-    UILabel *titleLabel = ({
-        UILabel *label = [[UILabel alloc] init];
-        label.tag = 111;
-        [label setAdjustsFontSizeToFitWidth:YES];
-        label.font = [UIFont systemFontOfSize:14];
-        [label sizeToFit];
-        label.textColor = UIColor.whiteColor;
-        label.text = @"";
-        label;
-        
-    });
-    
-    [self.topBarView addSubview:titleLabel];
-    [titleLabel bjl_makeConstraints:^(BJLConstraintMaker * _Nonnull make) {
-        make.left.equalTo(cancelButton.bjl_right).offset(-10);
-        make.centerY.equalTo(self.topBarView);
-        make.right.equalTo(self.topBarView.bjl_right).offset(-20);
-    }];
-    
-    
     
     // sliderView
     [self.view addSubview:self.sliderView];
@@ -99,9 +83,9 @@
     
     // mediaSettingView
     [self.view addSubview:self.mediaSettingView];
-    [self.mediaSettingView bjl_updateConstraints:^(BJLConstraintMaker *make) {
+    [self.mediaSettingView bjl_makeConstraints:^(BJLConstraintMaker *make) {
         make.top.bottom.right.equalTo(self.view.bjl_safeAreaLayoutGuide ?: self.view);
-        make.width.equalTo(@(80.0));
+        make.width.equalTo(self.view).multipliedBy(0.21);
     }];
     
     // reload view
@@ -111,6 +95,44 @@
     }];
     
     [self setupControlActions];
+    [self setupVerticalButton];
+}
+
+- (void)setupVerticalButton {
+    self.vSubtitleButton = ({
+        UIButton *button = [[UIButton alloc] init];
+        button.clipsToBounds = YES;
+        [button setTitleColor:[BJPUTheme defaultTextColor] forState:UIControlStateNormal];
+        [button.titleLabel setFont:[UIFont systemFontOfSize:14]];
+        [button setTitle:@"字幕" forState:UIControlStateNormal];
+        [button addTarget:self action:@selector(vShowSubtitleList) forControlEvents:UIControlEventTouchUpInside];
+        button;
+    });
+    
+    self.vRateButton =  ({
+        UIButton *button = [[UIButton alloc] init];
+        button.clipsToBounds = YES;
+        [button setTitleColor:[BJPUTheme defaultTextColor] forState:UIControlStateNormal];
+        [button.titleLabel setFont:[UIFont systemFontOfSize:14]];
+        [button setTitle:@"倍速" forState:UIControlStateNormal];
+        [button addTarget:self action:@selector(vShowRateList) forControlEvents:UIControlEventTouchUpInside];
+        button;
+    });
+    
+    [self.view addSubview:self.vSubtitleButton];
+    [self.view addSubview:self.vRateButton];
+    
+    [self.vRateButton bjl_makeConstraints:^(BJLConstraintMaker * _Nonnull make) {
+        make.right.equalTo(self.view.bjl_safeAreaLayoutGuide ?: self.view).offset(-5);
+        make.top.equalTo(self.view.bjl_safeAreaLayoutGuide ?: self.view).offset(10);
+        make.height.equalTo(@(30));
+        make.width.equalTo(@0.0); // to update
+    }];
+    [self.vSubtitleButton bjl_makeConstraints:^(BJLConstraintMaker * _Nonnull make) {
+        make.centerY.height.equalTo(self.vRateButton);
+        make.right.equalTo(self.vRateButton.bjl_left).offset(-5);
+        make.width.equalTo(@0.0); // to update
+    }];
 }
 
 #pragma mark - actions
@@ -166,6 +188,14 @@
     }
 }
 
+- (void)vShowSubtitleList {
+    [self showSubtitleView];
+}
+
+- (void)vShowRateList {
+    [self showRateList];
+}
+
 #pragma mark - show & hide
 
 - (void)hideInterfaceViews {
@@ -173,6 +203,8 @@
     [self hideView:self.topBarView withDuration:duration];
     [self hideView:self.mediaControlView withDuration:duration];
     [self hideView:self.lockButton withDuration:duration];
+    [self hideView:self.vRateButton withDuration:duration];
+    [self hideView:self.vSubtitleButton withDuration:duration];
 }
 
 - (void)hideInterfaceViewsAutomatically {
@@ -194,14 +226,20 @@
         return;
     }
     
-    if (self.layoutType == BJVPlayerViewLayoutType_Horizon && !self.mediaSettingView.hidden) {
+    if (!self.mediaSettingView.hidden) {
         self.mediaSettingView.hidden = YES;
+    }
+    if (self.subtitleView) {
+        [self.subtitleView removeFromSuperview];
+        self.subtitleView = nil;
     }
     
     [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(hideInterfaceViewsAutomatically) object:nil];
     BOOL hidden = !self.mediaControlView.hidden;
     self.mediaControlView.hidden = hidden;
     self.topBarView.hidden = hidden;
+    self.vSubtitleButton.hidden = hidden;
+    self.vRateButton.hidden = hidden;
     if (!self.mediaControlView.hidden) {
         [self performSelector:@selector(hideInterfaceViewsAutomatically) withObject:nil afterDelay:5.0];
     }
@@ -219,43 +257,33 @@
 #pragma mark - public
 
 - (void)updateConstriantsWithLayoutType:(BJVPlayerViewLayoutType)layoutType {
-    BOOL horizon = (layoutType == BJVPlayerViewLayoutType_Horizon);
+    BOOL horizen = (layoutType == BJVPlayerViewLayoutType_Horizon);
     BOOL locked = self.lockButton.selected;
-    if (locked && !horizon) {
+    if (locked && !horizen) {
         [self setLayoutType:BJVPlayerViewLayoutType_Horizon];
         return;
     }
     [self setLayoutType:layoutType];
     [self updatePlayProgress];
-    
-    [self.mediaControlView updateConstraintsWithLayoutType:horizon];
-    
-   // [self updateTopBarConstriantsWithLayoutType:horizon];
+
+    [self.mediaControlView updateConstraintsWithLayoutType:horizen];
     
     BOOL controlHidden = self.mediaControlView.hidden;
-    // mediaSettingView: 1: 竖屏：直接隐藏；2.之前是隐藏状态，继续保持。
-    self.mediaSettingView.hidden = !horizon || self.mediaSettingView.hidden;
-    self.lockButton.hidden = !horizon || controlHidden;
-}
-
--(void)updateTopBarConstriantsWithLayoutType:(BOOL)horizon {
     
-    UIView *tb = self.topBarView ;
-    if (horizon) {
-        
-        [tb bjl_updateConstraints:^(BJLConstraintMaker * _Nonnull make) {
-            make.top.equalTo(self.view).offset(0);
-        }];
-        
-        
-    }else{
-        
-        [tb bjl_updateConstraints:^(BJLConstraintMaker * _Nonnull make) {
-            make.top.equalTo(self.view).offset(22);
-        }];
-    }
+    // mediaSettingView 和 subtitleView, 维持原来的状态
+    self.mediaSettingView.hidden = self.mediaSettingView.hidden;
+    self.subtitleView.hidden = self.subtitleView.hidden;
     
+    // lockButton只有在横屏下才显示
+    self.lockButton.hidden = !horizen || controlHidden;
     
+    [self.vRateButton bjl_updateConstraints:^(BJLConstraintMaker * _Nonnull make) {
+        make.width.equalTo(horizen? @0.0 : @45.0);
+    }];
+    
+    [self.vSubtitleButton bjl_updateConstraints:^(BJLConstraintMaker * _Nonnull make) {
+        make.width.equalTo((self.mediaControlView.existSubtitle && !horizen)? @45.0 : @0.0);
+    }];
 }
 
 - (void)updatePlayerViewConstraintWithVideoRatio:(CGFloat)ratio {
@@ -277,13 +305,10 @@
 - (void)updatePlayProgress {
     NSTimeInterval curr = self.playerManager.currentTime;
     NSTimeInterval cache = self.playerManager.cachedDuration;
-    NSTimeInterval total = self.playerManager.duration;
-    BOOL horizon = (self.layoutType == BJVPlayerViewLayoutType_Horizon);
-    
+    NSTimeInterval total = self.playerManager.duration;    
     [self.mediaControlView updateProgressWithCurrentTime:curr
                                            cacheDuration:cache
-                                           totalDuration:total
-                                              isHorizon:horizon];
+                                           totalDuration:total];
 }
 
 - (void)updateWithPlayState:(BJVPlayerStatus)state {
@@ -302,13 +327,41 @@
 }
 
 - (void)showMediaSettingView {
-    if (self.layoutType != BJVPlayerViewLayoutType_Horizon) {
-        return;
-    }
     [self hideInterfaceViews];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         self.mediaSettingView.hidden = NO;
     });
+}
+
+- (void)showSubtitleView {
+    NSArray<BJVSubtitleInfo *> *infos = self.playerManager.playInfo.subtitleInfo;
+    NSMutableArray<NSString *> *infoName = [NSMutableArray new];
+    NSInteger selectedIndex = 0;
+    for (NSInteger index = 0; index < infos.count; index ++) {
+        BJVSubtitleInfo *info = [infos bjl_objectAtIndex:index];
+        if (info.ID == self.playerManager.currentSubtitleInfo.ID) {
+            selectedIndex = index;
+        }
+        [infoName bjl_addObject:info.name];
+    }
+    
+    [self hideInterfaceViews];
+    self.subtitleView = [BJPUSubtitleView new];
+    [self.subtitleView updateWithSettingOptons:infoName selectedIndex:selectedIndex on:!self.subtitleLabel.hidden];
+    bjl_weakify(self);
+    [self.subtitleView setSelectCallback:^(NSUInteger selectedIndex) {
+        bjl_strongify(self);
+        [self.playerManager changeSubtitleWithIndex:selectedIndex];
+    }];
+    [self.subtitleView setShowSubtitleCallback:^(BOOL showSubtitle) {
+        bjl_strongify(self);
+        self.subtitleLabel.hidden = !showSubtitle;
+    }];
+    [self.view addSubview:self.subtitleView];
+    [self.subtitleView bjl_makeConstraints:^(BJLConstraintMaker * _Nonnull make) {
+        make.top.bottom.right.equalTo(self.view.bjl_safeAreaLayoutGuide ?: self.view);
+        make.width.equalTo(self.view).multipliedBy(0.27);
+    }];
 }
 
 - (BOOL)isHorizon {
@@ -319,6 +372,13 @@
     else {
         return superView.bounds.size.width > superView.bounds.size.height;
     }
+}
+
+- (void)updateVSubtitleButtonConstriants:(BOOL)subtitleExist {
+    [self.vSubtitleButton bjl_updateConstraints:^(BJLConstraintMaker * _Nonnull make) {
+        // 不是横屏 && 字幕存在的时候, 显示 vSubtitleButton
+        make.width.equalTo((![self isHorizon] && subtitleExist)? @45.0 : @0.0);
+    }];
 }
 
 @end

@@ -10,21 +10,21 @@
 #import "BJPUAppearance.h"
 
 @interface BJPUTheme ()
-@property (strong, nonatomic) UIColor *defaultTextColor;
-@property (strong, nonatomic) UIColor *highlightTextColor;
-@property (strong, nonatomic) UIColor *backgroundColor;
-@property (strong, nonatomic) UIColor *brandColor;
-@property (strong, nonatomic) UIImage *logoImage;
-@property (strong, nonatomic) UIImage *backButtonImage;
-@property (strong, nonatomic) UIImage *playButtonImage;
-@property (strong, nonatomic) UIImage *pauseButtonImage;
-@property (strong, nonatomic) UIImage *stopButtonImage;
-@property (strong, nonatomic) UIImage *nextButtonImage;
-//@property (strong, nonatomic) UIImage *customerView;
-@property (strong, nonatomic) UIImage *sliderImage;
-@property (strong, nonatomic) UIImage *scaleButtonImage;
-@property (strong, nonatomic) UIImage *forwardImage;
-@property (strong, nonatomic) UIImage *backwardImage;
+@property (nonatomic) UIColor *defaultTextColor;
+@property (nonatomic) UIColor *highlightTextColor;
+@property (nonatomic) UIColor *backgroundColor;
+@property (nonatomic) UIColor *brandColor;
+@property (nonatomic) UIColor *blueBrandColor;
+@property (nonatomic) UIImage *logoImage;
+@property (nonatomic) UIImage *backButtonImage;
+@property (nonatomic) UIImage *playButtonImage;
+@property (nonatomic) UIImage *pauseButtonImage;
+@property (nonatomic) UIImage *stopButtonImage;
+@property (nonatomic) UIImage *nextButtonImage;
+@property (nonatomic) UIImage *sliderImage;
+@property (nonatomic) UIImage *scaleButtonImage;
+@property (nonatomic) UIImage *forwardImage;
+@property (nonatomic) UIImage *backwardImage;
 @end
 
 @implementation BJPUTheme
@@ -48,6 +48,10 @@
 
 + (void)setBrandColor:(UIColor *)color {
     [[BJPUTheme sharedInstance] setBrandColor:color];
+}
+
++ (void)setBlueBrandColor:(UIColor *)color {
+    [[BJPUTheme sharedInstance] setBlueBrandColor:color];
 }
 
 ////view
@@ -122,6 +126,15 @@
     }
     else {
         return [UIColor bjpu_colorWithHexString:@"0x000000"];
+    }
+}
+
++ (UIColor *)blueBrandColor {
+    if ([BJPUTheme sharedInstance].blueBrandColor) {
+        return [BJPUTheme sharedInstance].blueBrandColor;
+    }
+    else {
+        return [UIColor bjpu_colorWithHexString:@"0x1795FF"];
     }
 }
 

@@ -8,8 +8,10 @@
 #import <BJLiveBase/BJLiveBase+UIKit.h>
 
 #import "BJPUMediaSettingView.h"
-#import "BJPUMediaSettingCell.h"
+//#import "BJPUMediaSettingCell.h"
 #import "BJPUTheme.h"
+
+#import "BJPUSubtitleView.h"
 
 static NSString *cellIdentifier = @"settingCell";
 
@@ -60,18 +62,23 @@ static NSString *cellIdentifier = @"settingCell";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSString *title = (NSString *)[self.options objectAtIndex:indexPath.row];
-    BJPUMediaSettingCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
+    BJPUSubtitleCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
     NSInteger index = indexPath.row;
+    NSString *name = [self.options bjl_objectAtIndex:index];
     BOOL selected = (self.selectIndex == index);
-    [cell updateWithSettingTitle:title selected:selected];
-    [cell setSelectCallback:^{
-        self.selectIndex = index;
-        [self.tableView reloadData];
-        [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(optionSelected) object:nil];
-        [self performSelector:@selector(optionSelected) withObject:nil afterDelay:0.8];
-    }];
+    [cell updateWithName:name selected:selected];
+    [cell remakeSubviewConstraints];
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (self.selectIndex == indexPath.row) {
+        return;
+    }
+    self.selectIndex = indexPath.row;
+    [tableView reloadData];
+    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(optionSelected) object:nil];
+    [self performSelector:@selector(optionSelected) withObject:nil afterDelay:0.8];
 }
 
 - (void)optionSelected {
@@ -94,7 +101,7 @@ static NSString *cellIdentifier = @"settingCell";
             }
             tableView.dataSource = self;
             tableView.delegate = self;
-            [tableView registerClass:[BJPUMediaSettingCell class] forCellReuseIdentifier:cellIdentifier];
+            [tableView registerClass:[BJPUSubtitleCell class] forCellReuseIdentifier:cellIdentifier];
             tableView;
         });
     }

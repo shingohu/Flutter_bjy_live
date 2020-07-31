@@ -18,6 +18,7 @@ typedef NS_ENUM(NSUInteger, BJVPlayerViewLayoutType) {
 @interface BJPUViewController : UIViewController
 
 @property (nonatomic, assign) BJVPlayerViewLayoutType layoutType;
+@property (nonatomic, readonly) BJVPlayerManager *playerManager;
 @property (nonatomic, copy) void (^cancelCallback)(void);
 @property (nonatomic, copy) void (^screenLockCallback)(BOOL locked);
 

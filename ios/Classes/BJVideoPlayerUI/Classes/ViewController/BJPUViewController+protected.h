@@ -14,19 +14,22 @@
 #import "BJPUMediaSettingView.h"
 #import "BJPUSliderView.h"
 #import "BJPUReloadView.h"
+#import "BJPUSubtitleView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface BJPUViewController ()
 
-@property (nonatomic) BJVPlayerManager *playerManager;
+@property (nonatomic, readwrite) BJVPlayerManager *playerManager;
 @property (nonatomic) BJPUVideoOptions *videoOptions;
 @property (nonatomic) BJLAFNetworkReachabilityManager *reachablityManager;
 
 @property (nonatomic) BJPUMediaControlView *mediaControlView;
 @property (nonatomic) BJPUMediaSettingView *mediaSettingView;
+@property (nonatomic, nullable) BJPUSubtitleView *subtitleView;
 @property (nonatomic) BJPUSliderView *sliderView;
 @property (nonatomic) UIImageView *audioOnlyImageView;
+@property (nonatomic) UILabel *subtitleLabel;
 @property (nonatomic) UIView *topBarView;
 @property (nonatomic) UIButton *lockButton;
 @property (nonatomic) BJPUReloadView *reloadView;
@@ -39,6 +42,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) NSUInteger rateIndex;
 @property (nonatomic) NSUInteger definitionIndex;
 @property (nonatomic) BOOL isPlayingTailAD, isLocalVideo, pauseByInterrupt;
+
+// 只在竖屏状态显示
+@property (nonatomic) UIButton *vSubtitleButton;
+@property (nonatomic) UIButton *vRateButton;
 
 @end
 

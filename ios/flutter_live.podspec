@@ -22,8 +22,8 @@ A new Flutter plugin.
   s.static_framework = true
   s.resources = 'Classes/resource.bundle'
   s.dependency 'Flutter'
-  s.dependency 'BJLiveUI', '~> 2.2.0'
-  s.dependency 'BJPlaybackUI', '~> 2.2.0'
+  s.dependency 'BJLiveUI', '~> 2.9.2'
+  s.dependency 'BJPlaybackUI', '~> 2.9.2'
   #s.dependency 'BJVideoPlayerUI/static.source','~> 2.2.0'
 
   s.ios.deployment_target = '9.0'

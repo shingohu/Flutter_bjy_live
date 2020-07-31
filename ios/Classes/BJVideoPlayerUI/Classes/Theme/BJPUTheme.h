@@ -17,6 +17,8 @@
 
 + (void)setBrandColor:(UIColor *)color;
 
++ (void)setBlueBrandColor:(UIColor *)color;
+
 //small image
 + (void)setLogoImage:(UIImage *)image;
 
@@ -45,6 +47,8 @@
 + (UIColor *)highlightTextColor;
 
 + (UIColor *)brandColor;
+
++(UIColor *)blueBrandColor;
 
 //small image
 + (UIImage *)logoImage;

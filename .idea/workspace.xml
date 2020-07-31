@@ -3,11 +3,28 @@
   <component name="ChangeListManager">
     <list default="true" id="5d61e801-437f-451e-993e-cf86e600eb4c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/android/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/example/android/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/android/app/src/main/java/com/xgs/flutter_live_example/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/example/android/app/src/main/java/com/xgs/flutter_live_example/MainActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/example/ios/.symlinks/plugins/flutter_live/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/flutter_live/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/ios/Podfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/Podfile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Classes/BJVideoPlayerUI/Assets/ic_scale@2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Classes/BJVideoPlayerUI/Assets/ic_scale@2x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Classes/BJVideoPlayerUI/Classes/Theme/BJPUTheme.h" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Classes/BJVideoPlayerUI/Classes/Theme/BJPUTheme.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Classes/BJVideoPlayerUI/Classes/Theme/BJPUTheme.m" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Classes/BJVideoPlayerUI/Classes/Theme/BJPUTheme.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Classes/BJVideoPlayerUI/Classes/Util/MBProgressHUD+bjp.m" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Classes/BJVideoPlayerUI/Classes/Util/MBProgressHUD+bjp.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Classes/BJVideoPlayerUI/Classes/View/BJPUMediaControlView.h" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Classes/BJVideoPlayerUI/Classes/View/BJPUMediaControlView.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Classes/BJVideoPlayerUI/Classes/View/BJPUMediaControlView.m" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Classes/BJVideoPlayerUI/Classes/View/BJPUMediaControlView.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Classes/BJVideoPlayerUI/Classes/View/BJPUMediaSettingView.m" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Classes/BJVideoPlayerUI/Classes/View/BJPUMediaSettingView.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Classes/BJVideoPlayerUI/Classes/View/BJPUProgressView.m" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Classes/BJVideoPlayerUI/Classes/View/BJPUProgressView.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Classes/BJVideoPlayerUI/Classes/View/BJPUSliderView.m" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Classes/BJVideoPlayerUI/Classes/View/BJPUSliderView.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Classes/BJVideoPlayerUI/Classes/ViewController/BJPUViewController+media.h" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Classes/BJVideoPlayerUI/Classes/ViewController/BJPUViewController+media.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Classes/BJVideoPlayerUI/Classes/ViewController/BJPUViewController+media.m" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Classes/BJVideoPlayerUI/Classes/ViewController/BJPUViewController+media.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Classes/BJVideoPlayerUI/Classes/ViewController/BJPUViewController+observer.m" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Classes/BJVideoPlayerUI/Classes/ViewController/BJPUViewController+observer.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Classes/BJVideoPlayerUI/Classes/ViewController/BJPUViewController+protected.h" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Classes/BJVideoPlayerUI/Classes/ViewController/BJPUViewController+protected.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Classes/BJVideoPlayerUI/Classes/ViewController/BJPUViewController+ui.h" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Classes/BJVideoPlayerUI/Classes/ViewController/BJPUViewController+ui.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Classes/BJVideoPlayerUI/Classes/ViewController/BJPUViewController+ui.m" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Classes/BJVideoPlayerUI/Classes/ViewController/BJPUViewController+ui.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Classes/BJVideoPlayerUI/Classes/ViewController/BJPUViewController.h" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Classes/BJVideoPlayerUI/Classes/ViewController/BJPUViewController.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Classes/BJVideoPlayerUI/Classes/ViewController/BJPUViewController.m" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Classes/BJVideoPlayerUI/Classes/ViewController/BJPUViewController.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Classes/BJYDBViewController.swift" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Classes/BJYDBViewController.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Classes/SwiftFlutterLivePlugin.swift" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Classes/SwiftFlutterLivePlugin.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/flutter_live.podspec" beforeDir="false" afterPath="$PROJECT_DIR$/ios/flutter_live.podspec" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,6 +66,7 @@
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="MemberChooser.sorted" value="false" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="android.project.structure.last.selected" value="SDK Location" />
     <property name="android.project.structure.proportion" value="0.15" />
@@ -149,7 +167,14 @@
       <option name="project" value="LOCAL" />
       <updated>1594865578362</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="升级百家云SDK">
+      <created>1594868919660</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1594868919660</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -173,30 +198,30 @@
     <option name="LAST_COMMIT_MESSAGE" value="升级百家云SDK" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="119" y="0" key="CommitChangelistDialog2" timestamp="1594865577721">
+    <state x="119" y="0" key="CommitChangelistDialog2" timestamp="1594868918980">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state x="119" y="0" key="CommitChangelistDialog2/0.0.1280.800@0.0.1280.800" timestamp="1594865577721" />
-    <state width="1218" height="3" key="GridCell.Tab.0.bottom" timestamp="1594868192964">
+    <state x="119" y="0" key="CommitChangelistDialog2/0.0.1280.800@0.0.1280.800" timestamp="1594868918980" />
+    <state width="1218" height="3" key="GridCell.Tab.0.bottom" timestamp="1594869501308">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="1218" height="3" key="GridCell.Tab.0.bottom/0.0.1280.800@0.0.1280.800" timestamp="1594868192964" />
-    <state width="1218" height="3" key="GridCell.Tab.0.center" timestamp="1594868192961">
+    <state width="1218" height="3" key="GridCell.Tab.0.bottom/0.0.1280.800@0.0.1280.800" timestamp="1594869501308" />
+    <state width="1218" height="3" key="GridCell.Tab.0.center" timestamp="1594869501306">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="1218" height="3" key="GridCell.Tab.0.center/0.0.1280.800@0.0.1280.800" timestamp="1594868192961" />
-    <state width="1218" height="3" key="GridCell.Tab.0.left" timestamp="1594868192960">
+    <state width="1218" height="3" key="GridCell.Tab.0.center/0.0.1280.800@0.0.1280.800" timestamp="1594869501306" />
+    <state width="1218" height="3" key="GridCell.Tab.0.left" timestamp="1594869501305">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="1218" height="3" key="GridCell.Tab.0.left/0.0.1280.800@0.0.1280.800" timestamp="1594868192960" />
-    <state width="1218" height="3" key="GridCell.Tab.0.right" timestamp="1594868192963">
+    <state width="1218" height="3" key="GridCell.Tab.0.left/0.0.1280.800@0.0.1280.800" timestamp="1594869501305" />
+    <state width="1218" height="3" key="GridCell.Tab.0.right" timestamp="1594869501307">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="1218" height="3" key="GridCell.Tab.0.right/0.0.1280.800@0.0.1280.800" timestamp="1594868192963" />
-    <state x="40" y="15" key="Vcs.Push.Dialog.v2" timestamp="1594865587620">
+    <state width="1218" height="3" key="GridCell.Tab.0.right/0.0.1280.800@0.0.1280.800" timestamp="1594869501307" />
+    <state x="40" y="15" key="Vcs.Push.Dialog.v2" timestamp="1594868921773">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state x="40" y="15" key="Vcs.Push.Dialog.v2/0.0.1280.800@0.0.1280.800" timestamp="1594865587620" />
+    <state x="40" y="15" key="Vcs.Push.Dialog.v2/0.0.1280.800@0.0.1280.800" timestamp="1594868921773" />
     <state x="134" y="113" key="git4idea.merge.GitPullDialog" timestamp="1594265262300">
       <screen x="0" y="0" width="1280" height="800" />
     </state>

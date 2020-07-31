@@ -16,6 +16,8 @@
 - (void)updatePlayProgress;
 - (void)updateWithPlayState:(BJVPlayerStatus)state;
 - (void)showMediaSettingView;
+- (void)showSubtitleView;
 - (BOOL)isHorizon;
+- (void)updateVSubtitleButtonConstriants:(BOOL)subtitleExist;
 
 @end

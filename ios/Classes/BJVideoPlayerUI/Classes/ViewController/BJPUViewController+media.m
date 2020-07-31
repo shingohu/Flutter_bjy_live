@@ -45,6 +45,12 @@
         [self showDefinitionList];
     }];
     
+    // 字幕
+    [self.mediaControlView setShowSubtitleListCallback:^{
+        bjl_strongify(self);
+        [self showSubtitleView];
+    }];
+    
     // 缩放
     [self.mediaControlView setScaleCallback:^(BOOL horizon) {
         bjl_strongify(self);

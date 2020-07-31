@@ -17,17 +17,19 @@ static const CGFloat controlButtonH = 30.0;
 
 @interface BJPUMediaControlView () <BJPUSliderProtocol>
 
-@property (nonatomic, strong) UIButton *playButton;
-@property (nonatomic, strong) UIButton *pauseButton;
-@property (nonatomic, strong) UIButton *scaleButton;
+@property (nonatomic) UIButton *playButton;
+@property (nonatomic) UIButton *pauseButton;
+@property (nonatomic) UIButton *scaleButton;
+@property (nonatomic) UIButton *subtitleButton;
+@property (nonatomic) UIButton *definitionButton;
+@property (nonatomic) UIButton *rateButton;
 
-@property (nonatomic, strong) UIButton *definitionButton;
-@property (nonatomic, strong) UIButton *rateButton;
-
-@property (nonatomic, strong) UILabel *currentTimeLabel;
-@property (nonatomic, strong) UILabel *durationLabel;
-@property (nonatomic, strong) BJPUProgressView *progressView;
-@property (nonatomic, assign) BOOL stopUpdateProgress;
+@property (nonatomic) UILabel *currentTimeLabel;
+@property (nonatomic) UILabel *durationLabel;
+@property (nonatomic) BJPUProgressView *progressView;
+@property (nonatomic) BOOL stopUpdateProgress;
+@property (nonatomic, readwrite) BOOL existSubtitle;
+@property (nonatomic) BOOL horizen;
 
 @end
 
@@ -45,7 +47,7 @@ static const CGFloat controlButtonH = 30.0;
 #pragma mark - subViews
 
 - (void)setupSubviews {
-    CGFloat margin = 10.0;
+    CGFloat margin = 5.0;
     
     // 播放按钮
     [self addSubview:self.playButton];
@@ -61,14 +63,13 @@ static const CGFloat controlButtonH = 30.0;
         make.edges.equalTo(self.playButton);
     }];
     
-    // 缩放按钮, 在 iPad 上不显示
-    CGFloat scaleButtonWidth = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)? 0.0 : controlButtonH;
+    // 横竖屏切换按钮
     [self addSubview:self.scaleButton];
     [self.scaleButton bjl_makeConstraints:^(BJLConstraintMaker *make) {
         make.centerY.equalTo(self);
         make.right.equalTo(self).offset(-margin);
         make.height.equalTo(@(controlButtonH));
-        make.width.equalTo(@(scaleButtonWidth)); // to update
+        make.width.equalTo(@(controlButtonH));
     }];
     
     // 进度条: 约束待定
@@ -93,7 +94,16 @@ static const CGFloat controlButtonH = 30.0;
     [self addSubview:self.definitionButton];
     [self.definitionButton bjl_makeConstraints:^(BJLConstraintMaker *make) {
         make.centerY.equalTo(self);
-        make.right.equalTo(self.rateButton.bjl_left).offset(-margin);
+        make.right.equalTo(self.rateButton.bjl_left);
+        make.height.equalTo(@(controlButtonH));
+        make.width.equalTo(@0.0); // to update
+    }];
+    
+    // 字幕
+    [self addSubview:self.subtitleButton];
+    [self.subtitleButton bjl_makeConstraints:^(BJLConstraintMaker * _Nonnull make) {
+        make.centerY.equalTo(self);
+        make.right.equalTo(self.definitionButton.bjl_left);
         make.height.equalTo(@(controlButtonH));
         make.width.equalTo(@0.0); // to update
     }];
@@ -102,72 +112,57 @@ static const CGFloat controlButtonH = 30.0;
 #pragma mark - public
 
 - (void)updateConstraintsWithLayoutType:(BOOL)horizon {
-    CGFloat margin = 10.0;
+    self.horizen = horizon;
+    CGFloat margin = 5.0;
     
-    if (UI_USER_INTERFACE_IDIOM() != UIUserInterfaceIdiomPad) {
-        // !!!: iPad 不显示缩放按钮
-        [self.scaleButton bjl_updateConstraints:^(BJLConstraintMaker *make) {
-            make.width.equalTo(horizon? @0.0 : @(controlButtonH));
-        }];
+    if (self.horizen) {
+        [self.scaleButton setImage:[UIImage bjpu_imageNamed:@"ic_scale_horizen"] forState:UIControlStateNormal];
+    }
+    else {
+        [self.scaleButton setImage:[UIImage bjpu_imageNamed:@"ic_scale"] forState:UIControlStateNormal];
     }
     
+    // 竖屏下controlView上不显示倍速, 在屏幕的右上方显示
     [self.rateButton bjl_updateConstraints:^(BJLConstraintMaker *make) {
-        make.width.equalTo(horizon? @45.0 : @0.0);
+        make.width.equalTo((self.horizen)? @45.0 : @0.0);
     }];
     
     [self.definitionButton bjl_updateConstraints:^(BJLConstraintMaker *make) {
-        make.width.equalTo(horizon? @45.0 : @0.0);
+        make.width.equalTo(@45.0);
     }];
     
-    if (horizon) {
-        [self.durationLabel bjl_remakeConstraints:^(BJLConstraintMaker *make) {
-            make.centerY.equalTo(self);
-            make.right.equalTo(self.definitionButton.bjl_left).offset(-margin);
-        }];
-        
-        [self.currentTimeLabel bjl_remakeConstraints:^(BJLConstraintMaker *make) {
-            make.centerY.equalTo(self);
-            make.left.equalTo(self.playButton.bjl_right).offset(margin);
-        }];
-        
-        [self.progressView bjl_remakeConstraints:^(BJLConstraintMaker *make) {
-            make.centerY.equalTo(self);
-            make.left.equalTo(self.currentTimeLabel.bjl_right).offset(15.0);
-            make.right.equalTo(self.durationLabel.bjl_left).offset(-15.0);
-            make.height.equalTo(@10.0);
-        }];
-    }
-    else {
-        [self.progressView bjl_remakeConstraints:^(BJLConstraintMaker *make) {
-            make.left.equalTo(self.playButton.bjl_right).offset(margin);
-            make.right.equalTo(self.scaleButton.bjl_left).offset(-margin);
-            make.centerY.equalTo(self.playButton);
-            make.height.equalTo(@10.0);
-        }];
-        
-        [self.durationLabel bjl_remakeConstraints:^(BJLConstraintMaker *make) {
-            make.bottom.equalTo(self).offset(-5.0);
-            make.right.equalTo(self.scaleButton.bjl_left).offset(-20.0);
-        }];
-        
-        [self.currentTimeLabel bjl_remakeConstraints:^(BJLConstraintMaker *make) {
-            make.centerY.equalTo(self.durationLabel);
-            make.right.equalTo(self.durationLabel.bjl_left);
-        }];
-    }
+    // 竖屏下controlView上不显示字幕, 在屏幕的右上方显示
+    [self.subtitleButton bjl_updateConstraints:^(BJLConstraintMaker * _Nonnull make) {
+        make.width.equalTo((self.existSubtitle && self.horizen)? @45.0 : @0.0);
+    }];
+    
+    [self.durationLabel bjl_remakeConstraints:^(BJLConstraintMaker *make) {
+        make.centerY.equalTo(self);
+        make.right.equalTo(self.subtitleButton.bjl_left).offset(-margin);
+    }];
+    
+    [self.currentTimeLabel bjl_remakeConstraints:^(BJLConstraintMaker *make) {
+        make.centerY.equalTo(self);
+        make.left.equalTo(self.playButton.bjl_right).offset(margin);
+    }];
+    
+    [self.progressView bjl_remakeConstraints:^(BJLConstraintMaker *make) {
+        make.centerY.equalTo(self);
+        make.left.equalTo(self.currentTimeLabel.bjl_right).offset(15.0);
+        make.right.equalTo(self.durationLabel.bjl_left).offset(-15.0);
+        make.height.equalTo(self);
+    }];
 }
 
 - (void)updateProgressWithCurrentTime:(NSTimeInterval)currentTime
                         cacheDuration:(NSTimeInterval)cacheDuration
-                        totalDuration:(NSTimeInterval)totalDuration
-                           isHorizon:(BOOL)isHorizon {
+                        totalDuration:(NSTimeInterval)totalDuration {
     if (self.stopUpdateProgress) {
         return;
     }
     BOOL durationInvalid = (ceil(totalDuration) <= 0);
-    self.currentTimeLabel.text = (!isHorizon && durationInvalid)? @"" : [NSString stringFromTimeInterval:currentTime totalTimeInterval:totalDuration];
-    NSString *separator = isHorizon? @"" : @" / ";
-    self.durationLabel.text = durationInvalid? @"" : [NSString stringWithFormat:@"%@%@", separator, [NSString stringFromTimeInterval:totalDuration]];
+    self.currentTimeLabel.text = durationInvalid? @"" : [NSString stringFromTimeInterval:currentTime totalTimeInterval:totalDuration];
+    self.durationLabel.text = durationInvalid? @"" : [NSString stringWithFormat:@"%@", [NSString stringFromTimeInterval:totalDuration]];
     [self.progressView setValue:currentTime cache:cacheDuration duration:totalDuration];
 }
 
@@ -186,6 +181,11 @@ static const CGFloat controlButtonH = 30.0;
 
 - (void)updateWithDefinition:(NSString *)definitionString {
     [self.definitionButton setTitle:definitionString ?: @"高清" forState:UIControlStateNormal];
+}
+
+- (void)updateSubtitleExist:(BOOL)exist {
+    self.existSubtitle = exist;
+    [self updateConstraintsWithLayoutType:self.horizen];
 }
 
 #pragma mark - actions
@@ -208,7 +208,13 @@ static const CGFloat controlButtonH = 30.0;
 
 - (void)scaleAction:(UIButton *)button {
     if (self.scaleCallback) {
-        self.scaleCallback(YES);
+        self.scaleCallback(!self.horizen);
+    }
+}
+
+- (void)showSubtitleList {
+    if (self.showSubtitleListCallback) {
+        self.showSubtitleListCallback();
     }
 }
 
@@ -336,6 +342,21 @@ static const CGFloat controlButtonH = 30.0;
         });
     }
     return _progressView;
+}
+
+- (UIButton *)subtitleButton {
+    if (!_subtitleButton) {
+        _subtitleButton = ({
+            UIButton *button = [[UIButton alloc] init];
+            button.clipsToBounds = YES;
+            [button setTitleColor:[BJPUTheme defaultTextColor] forState:UIControlStateNormal];
+            [button.titleLabel setFont:[UIFont systemFontOfSize:14]];
+            [button setTitle:@"字幕" forState:UIControlStateNormal];
+            [button addTarget:self action:@selector(showSubtitleList) forControlEvents:UIControlEventTouchUpInside];
+            button;
+        });
+    }
+    return _subtitleButton;
 }
 
 - (UIButton *)definitionButton {

@@ -37,7 +37,7 @@
     hud.detailsLabel.text = msg;
     
     // 再设置模式
-    hud.mode = MBProgressHUDModeText;
+    hud.mode = BJLMBProgressHUDModeText;
     [hud setUserInteractionEnabled:false];
     
     // 隐藏时候从父控件中移除
@@ -63,7 +63,7 @@
     }
     
     // 移除上一个 HUD
-    MBProgressHUD *lastHud = [MBProgressHUD HUDForView:view];
+    BJLMBProgressHUD *lastHud = [BJLMBProgressHUD HUDForView:view];
     if (lastHud) {
         [lastHud hideAnimated:NO];
         [lastHud removeFromSuperview];
@@ -80,7 +80,7 @@
     hud.detailsLabel.font = [UIFont systemFontOfSize:16];
     
     // 再设置模式
-    hud.mode = MBProgressHUDModeIndeterminate;
+    hud.mode = BJLMBProgressHUDModeIndeterminate;
     hud.userInteractionEnabled = NO;
     
     // 隐藏时候从父控件中移除
@@ -95,7 +95,7 @@
 }
 
 + (void)bjp_closeLoadingView:(UIView *)toView {
-    MBProgressHUD *hud = [MBProgressHUD HUDForView:toView];
+    BJLMBProgressHUD *hud = [BJLMBProgressHUD HUDForView:toView];
     if (hud) {
         [hud hideAnimated:YES];
     }

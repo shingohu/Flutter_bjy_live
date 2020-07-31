@@ -64,6 +64,7 @@
 
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
+    [NSObject cancelPreviousPerformRequestsWithTarget:self];
     [self.updateDurationTimer invalidate];
     self.updateDurationTimer = nil;
 }
@@ -100,6 +101,22 @@
         });
     }
     return _playerManager;
+}
+
+- (UILabel *)subtitleLabel {
+    if (!_subtitleLabel) {
+        _subtitleLabel = ({
+            UILabel *label = [UILabel new];
+            label.numberOfLines = 0;
+            label.backgroundColor = [UIColor clearColor];
+            label.accessibilityLabel = BJLKeypath(self, subtitleLabel);
+            label.textColor = [BJPUTheme defaultTextColor];
+            label.font = [UIFont systemFontOfSize:16.0];
+            label.textAlignment = NSTextAlignmentCenter;
+            label;
+        });
+    }
+    return _subtitleLabel;
 }
 
 - (BJPUMediaControlView *)mediaControlView {

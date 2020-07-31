@@ -30,7 +30,6 @@ public class SwiftFlutterLivePlugin: NSObject, FlutterPlugin ,BJVRequestTokenDel
         if((dic["bjzsym"] as? String) != nil){
             BJLRoom.setPrivateDomainPrefix(dic["bjzsym"] as? String)
             BJVAppConfig.sharedInstance().privateDomainPrefix = dic["bjzsym"] as? String
-            print(dic["bjzsym"] as? String)
         }
     
         

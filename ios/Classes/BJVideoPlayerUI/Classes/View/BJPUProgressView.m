@@ -40,7 +40,9 @@
     // slideBgView
     [self addSubview:self.sliderBgView];
     [self.sliderBgView bjl_makeConstraints:^(BJLConstraintMaker *make) {
-        make.edges.equalTo(self).insets(UIEdgeInsetsMake(4.0, 0.0, 4.0, 0.0));
+        make.left.right.equalTo(self);
+        make.centerY.equalTo(self);
+        make.height.equalTo(@2.0);
     }];
     
     // cacheView
@@ -81,6 +83,7 @@
             UIImage *stretchImage = [image stretchableImageWithLeftCapWidth:image.size.width * 0.5
                                                                topCapHeight:image.size.height * 0.5];
             UIImageView *imageView = [[UIImageView alloc] initWithImage:stretchImage];
+            imageView.accessibilityLabel = BJLKeypath(self, sliderBgView);
             imageView;
         });
     }
@@ -91,6 +94,7 @@
     if (!_slider) {
         _slider = ({
             BJPUVideoSlider *slider = [[BJPUVideoSlider alloc] init];
+            slider.accessibilityLabel = BJLKeypath(self, slider);
             slider.backgroundColor = [UIColor clearColor];
             slider.minimumTrackTintColor = [UIColor clearColor];
             slider.maximumTrackTintColor = [UIColor clearColor];
@@ -115,6 +119,7 @@
     if (!_cacheView) {
         _cacheView = ({
             UIView *view = [[UIView alloc] init];
+            view.accessibilityLabel = BJLKeypath(self, cacheView);
             view.layer.masksToBounds = YES;
             view.layer.cornerRadius = 1.0;
             view.backgroundColor = [UIColor whiteColor];
