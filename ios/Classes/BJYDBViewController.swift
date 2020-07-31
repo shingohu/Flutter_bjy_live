@@ -73,8 +73,11 @@ class BJYDBViewController: UIViewController{
         
         let uilabel = bjpvc?.topBarView.viewWithTag(111) as? UILabel
         uilabel?.text = bjtitle
-    
+        
+        bjpvc?.subtitleLabel.text = bjtitle
+        
         bjpvc?.cancelCallback = {
+            print("退出")
             
             self.progress?(Int(self.bjpvc?.playerManager.currentTime ?? 0),Int(self.bjpvc?.playerManager.duration ?? 1))
               

@@ -66,6 +66,25 @@
         make.size.equal.sizeOffset(CGSizeMake(topBarHeight * 1.5, topBarHeight));
     }];
     
+    UILabel *titleLabel = ({
+        UILabel *label = [[UILabel alloc] init];
+        label.tag = 111;
+        [label setAdjustsFontSizeToFitWidth:YES];
+        label.font = [UIFont systemFontOfSize:14];
+        [label sizeToFit];
+        label.textColor = UIColor.whiteColor;
+        label.text = @"";
+        label;
+
+    });
+
+    [self.topBarView addSubview:titleLabel];
+    [titleLabel bjl_makeConstraints:^(BJLConstraintMaker * _Nonnull make) {
+        make.left.equalTo(cancelButton.bjl_right).offset(-10);
+        make.centerY.equalTo(self.topBarView);
+        make.right.equalTo(self.topBarView.bjl_right).offset(-20);
+    }];
+    
     // sliderView
     [self.view addSubview:self.sliderView];
     [self.sliderView bjl_makeConstraints:^(BJLConstraintMaker *make) {
