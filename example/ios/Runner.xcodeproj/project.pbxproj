@@ -153,11 +153,11 @@
 				97C146EC1CF9000F007C117D /* Resources */,
 				9705A1C41CF9048500538489 /* Embed Frameworks */,
 				3B06AD1E1E4923F5004D2608 /* Thin Binary */,
-				799C968ECB73FD9CF1C8E612 /* [CP] Embed Pods Frameworks */,
 				3DFE6E938FD44697D3500D9D /* [CP-User] [BJLiveCore] Embed Frameworks */,
 				FE0DEB50A46EBF5A7E790D25 /* [CP-User] [BJLiveBase] Clear Archs From Frameworks */,
 				E8B3BC12AD9FA72FDAAEB434 /* [CP-User] [BJVideoPlayerCore] Embed Frameworks */,
-				1A3DB20D4EAF5C487C7776C2 /* [CP] Copy Pods Resources */,
+				7A09816600CD394AA1E9EAD7 /* [CP] Embed Pods Frameworks */,
+				DCD765014D8158D911FF75A5 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -218,21 +218,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1A3DB20D4EAF5C487C7776C2 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Runner/Pods-Runner-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		3B06AD1E1E4923F5004D2608 /* Thin Binary */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -257,7 +242,7 @@
 			shellPath = /bin/sh;
 			shellScript = Pods/BJLiveCore/frameworks/EmbedFrameworks.sh;
 		};
-		799C968ECB73FD9CF1C8E612 /* [CP] Embed Pods Frameworks */ = {
+		7A09816600CD394AA1E9EAD7 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -306,6 +291,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DCD765014D8158D911FF75A5 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Runner/Pods-Runner-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E8B3BC12AD9FA72FDAAEB434 /* [CP-User] [BJVideoPlayerCore] Embed Frameworks */ = {

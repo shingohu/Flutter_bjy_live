@@ -26,11 +26,20 @@ A new Flutter plugin.
   s.dependency 'BJPlaybackUI', '~> 2.9.2'
   #s.dependency 'BJVideoPlayerUI/static.source','~> 2.2.0'
 
+  s.default_subspecs = ['static.source']
+
+    ## 源码集成
+  s.subspec 'static.source' do |ss|
+    ss.source_files = 'BJVideoPlayerUI/Classes/**/*'
+    ss.resource_bundles = {
+        'BJVideoPlayerUI' => ['BJVideoPlayerUI/Assets/*.png']
+     }
+  end
+
+
+
   s.ios.deployment_target = '9.0'
 
- s.resource_bundles = {
-        'BJVideoPlayerUI' => ['Classes/BJVideoPlayerUI/Assets/*.png']
-      }
 
 end
 
